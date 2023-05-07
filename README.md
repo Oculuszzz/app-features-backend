@@ -27,7 +27,7 @@ Please ensure to checkout the source code and import as maven project before pro
 ## Step by step to configure and run the application
 1. Please checkout the source code and import as maven project.
 2. Find the **org.springframework.boot.SpringApplication** class and run the application.
-3. Insert the dummy data that been provided at **..\resources\script_db\00.00.01\data.sql**.
+3. Insert the dummy data that had been provided at **..\resources\script_db\00.00.01\data.sql**.
 4. To insert the data please open the link http://localhost:8080/h2-console and login (To find the usernmae and password, please take a look into **application.properties** file).
 <br /><br /> ![Configure-h2db-username-password.png](images/H2db-login.png) <br /><br />
 5. Please copy and paste the query. And run the query.
@@ -41,4 +41,10 @@ SELECT * FROM USERS;
 SELECT * FROM FEATURES;
 ```
 
+## Testing API using OpenApi
+1. The application already integrated with the OpenApi. To test it simply open the link http://localhost:8080/swagger-ui/index.html
+<br /><br /> ![Swagger-ui-API.png](images/Swagger-ui-API.png) <br /><br />
+2. Choose any one of the availble API. And fill-in any necessary information that needed. After that click Execute to run the API.
+<br /><br /> ![Swagger UI — Test API.gif](https://github.com/Oculuszzz/app-features-backend/blob/main/images/Swagger%20UI%20%E2%80%94%20Test%20API.gif) <br /><br />
 
+## Table definition
