@@ -74,6 +74,6 @@ SELECT * FROM FEATURES;
 | user_id | Foreign key of **id** (Primary Key) USERS table |
 | user_feature_id | Foreign key of **id** (Primary Key) USER_FEATURE table |
 
-<br /><br /> ![](images/Entity Diagram.png) <br /><br />
+<br /><br /> ![[Entity Diagram.png](images/Entity Diagram.png)](https://github.com/Oculuszzz/app-features-backend/blob/main/images/Entity%20Diagram.png) <br /><br />
 
 
