@@ -56,9 +56,10 @@ public class UserServiceImpl implements UserService {
 		for (AccessFeatureRequest featureRequest : request.getAccessFeatures()) {
 
 			FeatureEntity featureEntity = featureRepository.findByFeatureName(featureRequest.getFeatureName())
-					.orElseThrow(() -> new FeatureException());
+					.orElseThrow(FeatureException::new);
 
-			UserFeatureEntity accessibilityFeatureDetailsEntity = new UserFeatureEntity(featureRequest.isEnable(), featureEntity);
+			UserFeatureEntity accessibilityFeatureDetailsEntity = new UserFeatureEntity(featureRequest.isEnable(),
+					featureEntity);
 			userEntity.getUserFeatures().add(accessibilityFeatureDetailsEntity);
 
 		}

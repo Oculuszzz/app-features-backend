@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import com.app.features.model.FeatureEntity;
 import com.app.features.model.UserEntity;
 import com.app.features.model.UserFeatureEntity;
-import com.app.features.payload.UpdateUserFeatureRequest;
 import com.app.features.payload.AccessFeatureResponse;
+import com.app.features.payload.UpdateUserFeatureRequest;
 import com.app.features.repository.FeatureRepository;
 import com.app.features.repository.UserRepository;
 import com.app.features.service.exception.FeatureException;
@@ -82,6 +82,8 @@ public class FeaturesServiceImpl implements FeaturesService {
 	@Override
 	public void updateUserFeature(UpdateUserFeatureRequest request) {
 
+		boolean isUpdated = false;
+
 		// Check user existing
 		UserEntity userEntity = userRepository.findByEmail(request.getEmail()).orElseThrow(UpdateUserException::new);
 
@@ -96,12 +98,25 @@ public class FeaturesServiceImpl implements FeaturesService {
 		// Update user accessibility feature
 		for (UserFeatureEntity accessibilityFeatureDetailsEntity : userEntity.getUserFeatures()) {
 
-			if (accessibilityFeatureDetailsEntity.getFeature().getFeatureName().contentEquals(request.getFeatureName())) {
+			if (accessibilityFeatureDetailsEntity.getFeature().getFeatureName()
+					.contentEquals(request.getFeatureName())) {
 
 				accessibilityFeatureDetailsEntity.setEnable(request.getEnable());
+				isUpdated = true;
 				break;
 
 			}
+
+		}
+
+		// Not updating yet because there is new feature just added and this user are
+		// not bind to this new feature
+		if (!isUpdated) {
+
+			FeatureEntity featureEntity = featureRepository.findByFeatureName(request.getFeatureName()).get();
+			UserFeatureEntity newData = new UserFeatureEntity(request.getEnable(), featureEntity);
+
+			userEntity.getUserFeatures().add(newData);
 
 		}
 
