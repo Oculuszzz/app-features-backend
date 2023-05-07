@@ -3,6 +3,8 @@ This is simple Spring Boot project where employing Model View Controller (Spring
 <br />
 Also employing JpaRepository extension which is contains API for CRUD (Create, Read, Update and Delete) operations and also API for pagination and sorting.
 
+Test units also been created for controller, service and repository layer by using JUnit5 and Mockito.
+
 The main objective this application is to allow user to manage users’ accesses to new features via feature switches,
 i.e. enabling/disabling certain feature based on a user’s email and feature names).  
 
@@ -12,6 +14,7 @@ i.e. enabling/disabling certain feature based on a user’s email and feature na
 3. Spring Boot 3 (3.0.6)
 4. H2 Database
 5. OpenApi 2 (Swagger-Ui)
+6. JUnit5 and Mockito
 
 Please ensure to checkout the source code and import as maven project before proceed to next step.
 
@@ -76,4 +79,11 @@ SELECT * FROM FEATURES;
 
 <br /><br /> ![[Entity Diagram.png](images/Entity Diagram.png)](https://github.com/Oculuszzz/app-features-backend/blob/main/images/Entity%20Diagram.png) <br /><br />
 
+## Testing Unit Test Case (Controller, Service and repository layer)
+1. Before do a test, please ensure to change the H2 database to memory based database (To prevent the unit test stored the test data into your existing H2 database file).
+2. To re-configure the H2 database simply follow the previous step, 
+<br /> [Step by step to configure the H2 database](https://github.com/Oculuszzz/app-features-backend#step-by-step-to-configure-the-h2-database)
+3. Select any one of test unit from the project and run it.
+<br /><br /> ![Test-unit-1.png](images/Test-unit-1.png)
+<br /><br /> ![Test-unit-2.png](images/Test-unit-2.png)
 
