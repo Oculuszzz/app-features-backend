@@ -47,4 +47,33 @@ SELECT * FROM FEATURES;
 2. Choose any one of the availble API. And fill-in any necessary information that needed. After that click Execute to run the API.
 <br /><br /> ![Swagger UI — Test API.gif](https://github.com/Oculuszzz/app-features-backend/blob/main/images/Swagger%20UI%20%E2%80%94%20Test%20API.gif) <br /><br />
 
-## Table definition
+## Definition Tables 
+
+### 1. USERS Table
+| Coloumn | Description |
+| --- | --- |
+| id | User Id |
+| email | User Email |
+
+### 2. FEATURES Table
+| Coloumn | Description |
+| --- | --- |
+| id | Feature Id |
+| featureName | Name of feature |
+
+### 3. USER_FEATURE Table
+| Coloumn | Description |
+| --- | --- |
+| id | User feature Id |
+| enable | Feature is enable/disable |
+| feature_id | Foreign key of **id** (Primary Key) FEATURES table |
+
+### 4. USER_ACCESSIBILITY_FEATURES Table
+| Coloumn | Description |
+| --- | --- |
+| user_id | Foreign key of **id** (Primary Key) USERS table |
+| user_feature_id | Foreign key of **id** (Primary Key) USER_FEATURE table |
+
+<br /><br /> ![](images/Entity Diagram.png) <br /><br />
+
+
